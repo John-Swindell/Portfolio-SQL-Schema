@@ -4,7 +4,7 @@
 
 -- The rest of this will assume that the sample_data_insertion script has already run successfully.
 
--- Add Skills specific to John Swindell. This matches 1:1 with the sample ID's.
+-- Add Skills specific to me, John Swindell. This matches 1:1 with the sample ID's.
 -- Check existing Skill IDs first if you want to reuse them.
 -- Finally, assumes that the AUTO_INCREMENT values continue sequentially.
 
