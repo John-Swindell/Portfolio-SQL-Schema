@@ -30,8 +30,6 @@ To demonstrate how data can be retrieved from this schema, example `SELECT` quer
 
 [sql/sample_queries.sql](/sql/sample_queries.sql)
 
-*(Optional: Briefly mention 1-2 interesting queries, e.g., "Examples include retrieving all skills for a person or finding everyone with a specific skill.")*
-
 ## Sample Data Insertion (`data_insertion.sql`)
 
 For testing purposes, sample `INSERT` statements are available to populate the database with some initial data:
