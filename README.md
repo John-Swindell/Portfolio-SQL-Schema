@@ -6,7 +6,7 @@ This repository showcases database design and SQL skills. It provides a relation
 
 The structure of the database can be seen below:
 
-![ERD for Skills and Education Database](/sql-erd-white-text.png)
+![ERD for Skills and Education Database](/erd/sql-erd-white-text.png)
 
 **Table Informaiton:**
 * `Person`: Stores basic contact information.
@@ -20,7 +20,7 @@ The structure of the database can be seen below:
 
 The complete SQL `CREATE TABLE` statements for setting up this database structure can be found in the `sql` directory:
 
-[sql/schema.sql](sql/sql/schema.sql)
+[sql/schema.sql](/sql/schema.sql)
 
 This schema defines tables, columns, primary keys, foreign keys, and data types necessary to represent the relationships shown in the ERD.
 
@@ -28,7 +28,7 @@ This schema defines tables, columns, primary keys, foreign keys, and data types 
 
 To demonstrate how data can be retrieved from this schema, example `SELECT` queries are provided. These queries show common operations like joining tables, filtering data, and aggregation:
 
-[sql/sample_queries.sql](sql/sql/sample_queries.sql)
+[sql/sample_queries.sql](/sql/sample_queries.sql)
 
 *(Optional: Briefly mention 1-2 interesting queries, e.g., "Examples include retrieving all skills for a person or finding everyone with a specific skill.")*
 
@@ -37,8 +37,4 @@ To demonstrate how data can be retrieved from this schema, example `SELECT` quer
 
 For testing purposes, sample `INSERT` statements are available to populate the database with some initial data:
 
-[sql/data_insertion.sql](sql/sql/data_insertion.sql)
-
-## Technologies Used
-* **SQL:** (Specify dialect if you targeted one, e.g., PostgreSQL, MySQL, or just "SQL")
-* **ERD Tool:** draw.io
+[sql/data_insertion.sql](/sql/data_insertion.sql)
