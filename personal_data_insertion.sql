@@ -29,7 +29,7 @@ INSERT INTO Skill (SkillCategoryID, SkillName) VALUES (1, 'R');
 -- SkillID = 11
 INSERT INTO Skill (SkillCategoryID, SkillName) VALUES (1, 'Lua');
 -- SkillID = 12
-INSERT INTO Skill (SkillCategoryID, SkillName) VALUES (2, 'SQLite'); -- From website description
+INSERT INTO Skill (SkillCategoryID, SkillName) VALUES (2, 'SQLite');
 
 -- 4. Insert Degree Data for John Swindell
 INSERT INTO Degree (PersonID, EducationID, DegreeName, Major, OverallGPA, Honors)
