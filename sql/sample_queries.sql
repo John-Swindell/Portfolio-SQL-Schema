@@ -6,7 +6,7 @@
 -- However, If you have forked this, ensure you use your own ID for your own respcetive data.
 
 
- Query 1: Get all skills for a specific person. 
+-- Query 1: Get all skills for a specific person. 
 -- The goal is joining Person -> PersonSkill -> Skill -> SkillCategory
 SELECT
     p.FirstName,
