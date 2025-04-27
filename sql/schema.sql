@@ -32,7 +32,7 @@ CREATE TABLE Degree (
     EducationID INT,
     DegreeName VARCHAR(50),
     Major VARCHAR(30),
-    OverallGPA DECIMAL(3, 2), -- e.g., 3 digits total, 2 after the decimal (like 3.75)
+    OverallGPA DECIMAL(3, 2),
     Honors VARCHAR(60),
     FOREIGN KEY (PersonID) REFERENCES Person(PersonID),
     FOREIGN KEY (EducationID) REFERENCES Education(EducationID)
