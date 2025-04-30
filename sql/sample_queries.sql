@@ -3,7 +3,7 @@
 -- Below are some potential queries for my Skills and Education Database Schema
 -- For the query examples throughout, PersonID = 3 will be used in the MySQL code, since it pulls my data.
 -- If you choose to input my data, all of these queries will give you information about me. 
--- However, If you have forked this, ensure you use your own ID for your own respcetive data.
+-- However, If you have forked this, ensure you use your own ID for your own respective  data.
 
 
 -- Query 1: Get all skills for a specific person. 
