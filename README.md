@@ -1,5 +1,4 @@
-# Portfolio Database Schema: Skills & Education (MySQL)
-# Personal Project
+# Portfolio Database Schema: Skills & Education (MySQL Personal Project)
 
 This repository showcases database design and SQL skills. It provides a relational database schema designed to model personal information, educational background, and technical skills, suitable for a portfolio or personal tracking application. I've included some brief explainations here in the README and throughout the code's comments if you'd like to recreate this with your own data.
 
