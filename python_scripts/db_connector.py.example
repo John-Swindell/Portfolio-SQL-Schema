@@ -1,0 +1,107 @@
+# python_scripts/db_connector.py.example
+import mysql.connector
+from mysql.connector import Error
+import os
+
+# Config Instructions
+# 1. Rename this file to 'db_connector.py'.
+# 2. Fill in your database credentials below.
+# 3. For TiDB Cloud or similar cloud DBs requiring SSL with a specific CA:
+#    a. Download the CA certificate from your database provider.
+#    b. Place it in the main project root directory (e.g., where README.md is).
+#    c. The 'CA_CERT_PATH' below will attempt to find it if named 'isrgrootx1.pem'.
+#       Adjust CA_CERT_FILENAME if your CA file has a different name.
+
+
+# User-Modifiable Settings
+DB_HOST = 'YOUR_TIDB_CLOUD_HOST_OR_LOCALHOST'
+DB_USER = 'YOUR_DATABASE_USER'
+DB_PASSWORD = 'YOUR_DATABASE_PASSWORD'
+DB_PORT = 4000  # Default for TiDB Serverless, 3306 for local MySQL
+DEFAULT_DB_NAME = 'portfolio_db'
+
+# For SSL connections to cloud databases like TiDB
+# Set USE_SSL to False if connecting to a local MySQL that doesn't require SSL
+USE_SSL = True
+CA_CERT_FILENAME = "isrgrootx1.pem"  # The expected name of the CA cert in the project root
+
+
+
+# Automatic path config for CA certificate
+CA_CERT_PATH = None
+if USE_SSL and CA_CERT_FILENAME:
+    try:
+        # Assumes this script (db_connector.py) is in 'python_scripts/'
+        # and the CA cert is in the parent directory (project root)
+        SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+        PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+        CA_CERT_PATH = os.path.join(PROJECT_ROOT, CA_CERT_FILENAME)
+
+        if not os.path.exists(CA_CERT_PATH):
+            print(f"[Warning] CA Certificate file '{CA_CERT_FILENAME}' not found at expected project root path: {CA_CERT_PATH}")
+            print(f"Please ensure '{CA_CERT_FILENAME}' is in the project root directory: {PROJECT_ROOT}")
+            # You might choose to make CA_CERT_PATH = None or raise an error if critical
+    except Exception as e:
+        print(f"[Error] Could not determine CA_CERT_PATH: {e}")
+
+
+# Main connection logic
+def get_db_config():
+    """Builds the database configuration dictionary."""
+    config = {
+        'host': DB_HOST,
+        'user': DB_USER,
+        'password': DB_PASSWORD,
+        'port': int(DB_PORT),
+    }
+    if USE_SSL:
+        if CA_CERT_PATH and os.path.exists(CA_CERT_PATH):
+            config['ssl_ca'] = CA_CERT_PATH
+            config['ssl_verify_identity'] = True
+        elif CA_CERT_PATH and not os.path.exists(CA_CERT_PATH):
+            print(f"[Warning] Proceeding connection attempt without CA cert as file was not found at {CA_CERT_PATH}.")
+        elif not CA_CERT_PATH: # If CA_CERT_FILENAME was empty or USE_SSL was true but no filename
+             print(f"[Warning] USE_SSL is True, but CA_CERT_PATH could not be determined. SSL connection might fail or be insecure.")
+
+
+    # For local MySQL without SSL, you might need to explicitly disable SSL
+    # if mysql.connector tries to use it by default on some systems.
+    # if not USE_SSL:
+    #    config['ssl_disabled'] = True # Only if you encounter issues connecting to local non-SSL DB
+    return config
+
+def connect_db(db_name=None):
+    """
+    Establishes a connection to the MySQL database.
+    Uses the DEFAULT_DB_NAME if db_name is not provided.
+    """
+    conn = None
+    db_to_connect = db_name if db_name else DEFAULT_DB_NAME
+
+    try:
+        current_config = get_db_config()
+        current_config['database'] = db_to_connect
+
+        # print(f"Attempting to connect with config: { {k:v for k,v in current_config.items() if k != 'password'} }") # Debug
+        conn = mysql.connector.connect(**current_config)
+
+    except Error as e:
+        print(f"Error connecting to database '{db_to_connect}': {e}")
+        conn = None
+    return conn
+
+# simple test connection function
+def test_connection(db_name_to_test=None):
+    print(f"\nTesting database connection to '{db_name_to_test if db_name_to_test else DEFAULT_DB_NAME}'...")
+    conn = connect_db(db_name_to_test)
+    if conn:
+        print("Connection test SUCCESSFUL.")
+        conn.close()
+        return True
+    else:
+        print("Connection test FAILED.")
+        return False
+
+if __name__ == '__main__':
+    print("Running db_connector.py")
+    test_connection()
