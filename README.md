@@ -135,8 +135,8 @@ Follow these steps to set up and run this project using the Python scripts:
 Here are a few examples of the output from `run_sample_queries.py`:
 
 **1. Get all skills for a specific person:**
-![Query 1 Output](/script_output_images/query_1.png) **2. Count the number of skills listed for each person:**
-![Query 5 Output](/script_output_images/query_5.png) **(Add more screenshots as you see fit)**
+![Query 1 Output](/script_output_images/query_1.PNG) **2. Count the number of skills listed for each person:**
+![Query 5 Output](/script_output_images/query_5.PNG) **(Add more screenshots as you see fit)**
 
 ---
 
