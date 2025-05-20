@@ -1,12 +1,8 @@
 -- Ensure the Skill Categories 1- Programming Language, 2- Database), 3- Web Development exist
 -- If you don't want to instantiate them yourself, simply input the sample_data_insertion first, then this file.
-
-
 -- The rest of this will assume that the sample_data_insertion script has already run successfully.
 
 -- Add Skills specific to me, John Swindell. This matches 1:1 with the sample ID's.
--- Check existing Skill IDs first if you want to reuse them.
--- Finally, assumes that the AUTO_INCREMENT values continue sequentially.
 
 -- 1. Insert Person Data for John Swindell // ID should be 3
 INSERT INTO Person (FirstName, LastName, Email, State, City)
@@ -43,19 +39,18 @@ VALUES (
 );
 
 -- 5. Insert PersonSkill Links for John Swindell
--- Links PersonID=3 (John Swindell // me) to the relevant SkillIDs.
--- I'll include some brief comments saying what links where for in case you've forked this.
--- For adding yourself to this database, replace the first value with your ID, and the second value matching the skill.
+-- Links PersonID=3 (e.g., John Swindell) to the relevant SkillIDs.
+-- If adding yourself to this database, replace the first value with your ID, and the second value matching the skill.
 
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 1);  -- Link John Swindell to Python
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 2);  -- Link John Swindell to Java
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 7);  -- Link John Swindell to C#
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 3);  -- Link John Swindell to SQL
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 8);  -- Link John Swindell to MySQL
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 9);  -- Link John Swindell to JavaScript
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 5);  -- Link John Swindell to HTML
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 6);  -- Link John Swindell to CSS
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 10); -- Link John Swindell to R
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 11); -- Link John Swindell to Lua
-INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 12); -- Link John Swindell to SQLite
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 1); 
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 2); 
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 7); 
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 3);  
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 8); 
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 9); 
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 5);  
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 6);  
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 10); 
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 11); 
+INSERT INTO PersonSkill (PersonID, SkillID) VALUES (3, 12); 
 
