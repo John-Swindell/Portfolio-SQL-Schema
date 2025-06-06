@@ -24,7 +24,7 @@ This repository showcases database design with SQL and programmatic interaction 
 
 The structure and relationships within the database are visualized below:
 
-![ERD for Skills and Education Database](/erd/sql-erd-white-text.png)
+![ERD for Skills and Education Database](/erd/main-erd-black-background.png)
 
 ### Table Information:
 
